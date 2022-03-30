@@ -45,13 +45,13 @@ namespace PaladinsDatabaseProject.Controller
             }
         }
 
-/*
+
         //Update - Dev 2
         public void UpdateChampion(int id, Champion champion)
         {
             using (PaladinsChampionsDBEntities db = new PaladinsChampionsDBEntities())
             {
-                var championToUpdate = db.Champion.ToList().Where(c => c.Id == id).FirstOrDefault();
+                var championToUpdate = db.Champions.ToList().Where(c => c.Id == id).FirstOrDefault();
                 if (championToUpdate != null)
                 {
                     championToUpdate.Id = id;
@@ -61,7 +61,6 @@ namespace PaladinsDatabaseProject.Controller
                 }
             }    
         } 
-        */
     }
     
 }
