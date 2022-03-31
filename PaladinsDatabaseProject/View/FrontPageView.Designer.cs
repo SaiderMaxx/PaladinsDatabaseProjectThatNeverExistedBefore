@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvChampions = new System.Windows.Forms.DataGridView();
+            this.championBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblName = new System.Windows.Forms.Label();
             this.lblLevel = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -37,10 +38,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.championBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.levelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChampions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.championBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +46,9 @@
             // 
             this.dgvChampions.AutoGenerateColumns = false;
             this.dgvChampions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvChampions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.levelDataGridViewTextBoxColumn});
             this.dgvChampions.DataSource = this.championBindingSource;
             this.dgvChampions.Location = new System.Drawing.Point(-2, 0);
-            this.dgvChampions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvChampions.Margin = new System.Windows.Forms.Padding(2);
             this.dgvChampions.Name = "dgvChampions";
             this.dgvChampions.RowHeadersWidth = 51;
             this.dgvChampions.Size = new System.Drawing.Size(261, 202);
@@ -87,7 +80,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(470, 7);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(122, 37);
             this.txtName.TabIndex = 2;
@@ -96,7 +89,7 @@
             // 
             this.txtLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLevel.Location = new System.Drawing.Point(470, 53);
-            this.txtLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLevel.Margin = new System.Windows.Forms.Padding(2);
             this.txtLevel.Name = "txtLevel";
             this.txtLevel.Size = new System.Drawing.Size(122, 37);
             this.txtLevel.TabIndex = 2;
@@ -104,17 +97,18 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(433, 105);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(158, 36);
             this.btnUpdate.TabIndex = 3;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCreate
             // 
             this.btnCreate.Location = new System.Drawing.Point(270, 105);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(158, 36);
             this.btnCreate.TabIndex = 3;
@@ -125,35 +119,13 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(352, 145);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(158, 36);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // championBindingSource
-            // 
-            this.championBindingSource.DataSource = typeof(PaladinsDatabaseProject.Model.Champion);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // levelDataGridViewTextBoxColumn
-            // 
-            this.levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
-            this.levelDataGridViewTextBoxColumn.HeaderText = "Level";
-            this.levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // FrontPageView
             // 
@@ -168,7 +140,7 @@
             this.Controls.Add(this.lblLevel);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.dgvChampions);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrontPageView";
             this.Text = "FrontPage";
             this.Load += new System.EventHandler(this.FrontPage_Load);

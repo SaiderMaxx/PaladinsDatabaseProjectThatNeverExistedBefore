@@ -56,11 +56,10 @@ namespace PaladinsDatabaseProject.Controller
                 {
                     championToUpdate.Id = id;
                     championToUpdate.Name = champion.Name;
-                    championToUpdate.Price = champion.Level;
+                    championToUpdate.Level = champion.Level;
                     db.SaveChanges();
                 }
             }    
         } 
     }
-    
 }
