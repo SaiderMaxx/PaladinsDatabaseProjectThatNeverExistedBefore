@@ -37,5 +37,24 @@ namespace PaladinsDatabaseProject.View
             paladinsController.AddChampion(champion);
             RefreshTable();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvChampions.CurrentRow;
+            int id = int.Parse(row.Cells[0].Value.ToString());
+            Champion champion = new Champion();
+            champion.Name = txtName.Text;
+            champion.Level = int.Parse(txtLevel.Text);
+            paladinsController.UpdateChampion(id, champion);
+            RefreshTable();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvChampions.CurrentRow;
+            int id = int.Parse(row.Cells[0].Value.ToString());
+            paladinsController.DeleteChampion(id);
+            RefreshTable();
+        }
     }
 }

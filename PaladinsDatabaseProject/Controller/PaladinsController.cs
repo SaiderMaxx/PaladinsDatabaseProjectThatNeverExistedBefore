@@ -30,11 +30,36 @@ namespace PaladinsDatabaseProject.Controller
                 db.SaveChanges();
             }
         }
+        
+        //Delete - Dev 1
+        public void DeleteChampion(int id)
+        {
+            using (PaladinsChampionsDBEntities db = new PaladinsChampionsDBEntities())
+            {
+                var championToDelete = db.Champions.Where(p => p.Id == id).FirstOrDefault();
+                if (championToDelete != null)
+                {
+                    db.Champions.Remove(championToDelete);
+                    db.SaveChanges();
+                }
+            }
+        }
 
-        //Update
 
-
-        //Delete
+        //Update - Dev 2
+        public void UpdateChampion(int id, Champion champion)
+        {
+            using (PaladinsChampionsDBEntities db = new PaladinsChampionsDBEntities())
+            {
+                var championToUpdate = db.Champions.ToList().Where(c => c.Id == id).FirstOrDefault();
+                if (championToUpdate != null)
+                {
+                    championToUpdate.Id = id;
+                    championToUpdate.Name = champion.Name;
+                    championToUpdate.Level = champion.Level;
+                    db.SaveChanges();
+                }
+            }    
+        } 
     }
-    
 }
